@@ -1,5 +1,8 @@
 package org.zhezii.easy;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Zhou Wenzhe
  * @date 2019/5/22
@@ -15,7 +18,7 @@ public class Twosum {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4, 5};
         int target = 3;
-        System.out.println(twoSum(nums,target)[0]+"***"+twoSum(nums,target)[1]);
+        System.out.println(twoSum2(nums,target)[0]+"***"+twoSum(nums,target)[1]);
     }
 
     private static int[] twoSum(int[] nums, int target) {
@@ -30,6 +33,18 @@ public class Twosum {
             }
         }
         return arr;
+    }
+
+    private static int[] twoSum2(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0;i < nums.length; i++){
+            int complent = target - nums[i];
+            if (map.containsKey(complent)) {
+                return new int[]{map.get(complent),i};
+            }
+            map.put(nums[i],i);
+        }
+        return null;
     }
 
 }
