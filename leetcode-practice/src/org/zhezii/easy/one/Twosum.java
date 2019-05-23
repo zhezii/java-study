@@ -1,4 +1,4 @@
-package org.zhezii.easy;
+package org.zhezii.easy.one;
 
 import java.util.HashMap;
 import java.util.Map;
