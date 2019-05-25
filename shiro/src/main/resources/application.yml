@@ -1,0 +1,49 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:sql://127.0.0.1:3306/javastudy
+    username: root
+    password: 123
+    #\u4F7F\u7528druid\u6570\u636E\u6E90
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #\u521D\u59CB\u8FDE\u63A5\u6570
+      initial-size: 1
+      #\u6700\u5927\u8FDE\u63A5\u6570
+      max-active: 20
+      #\u6700\u5C0F\u7A7A\u95F2\u8FDE\u63A5\u6570
+      min-idle: 1
+      #\u6700\u957F\u7B49\u5F85\u65F6\u95F4
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      validation-query: select 1
+      validation-query-timeout: 60000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      filter:
+        stat:
+          log-slow-sql: true
+          db-type: mysql
+          slow-sql-millis: 2000
+      stat-view-servlet:
+        login-password: druid
+        login-username: druid
+        allow: 127.0.0.1
+        url-pattern: /druid/*
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML
+
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: org.zhezii.model
+  configuration:
+    map-underscore-to-camel-case: true
+    use-column-label: true
+
