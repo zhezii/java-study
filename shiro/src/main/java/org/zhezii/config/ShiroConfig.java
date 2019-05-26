@@ -23,24 +23,24 @@ import java.util.Properties;
 public class ShiroConfig {
 
     @Bean
-    public ShiroFilterFactoryBean shirFilter(SecurityManager   securityManager) {
-        log.info("ShiroConfiguration.shirFilter");
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
+        log.info("ShiroConfiguration.shiroFilter");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //拦截器
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         //配置不会被拦截的链接  顺序判断
-        filterChainDefinitionMap.put("/logout", "logout");
+//        filterChainDefinitionMap.put("/logout", "logout");
         //过滤定义,从上往下执行，一般将/**放到最下边
         //authc:所有url都必须认证才能通过,anon:所有url都可以匿名访问
-        filterChainDefinitionMap.put("/**", "authc");
+//        filterChainDefinitionMap.put("/**", "authc");
         //如果不设置默认会自动寻找web工程根目录下的"/login.jsp"
-        shiroFilterFactoryBean.setLoginUrl("/login");
+//        shiroFilterFactoryBean.setLoginUrl("/login");
         //登陆成功后要跳转的链接
-        shiroFilterFactoryBean.setSuccessUrl("/index");
+//        shiroFilterFactoryBean.setSuccessUrl("/index");
 
         //未授权界面
-        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
+//        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }

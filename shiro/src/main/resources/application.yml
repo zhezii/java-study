@@ -3,19 +3,14 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:sql://127.0.0.1:3306/javastudy
+    url: jdbc:mysql://localhost:3306/javastudy?useUnicode=true&characterEncoding=utf8
     username: root
     password: 123
-    #\u4F7F\u7528druid\u6570\u636E\u6E90
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      #\u521D\u59CB\u8FDE\u63A5\u6570
       initial-size: 1
-      #\u6700\u5927\u8FDE\u63A5\u6570
       max-active: 20
-      #\u6700\u5C0F\u7A7A\u95F2\u8FDE\u63A5\u6570
       min-idle: 1
-      #\u6700\u957F\u7B49\u5F85\u65F6\u95F4
       max-wait: 60000
       pool-prepared-statements: true
       max-pool-prepared-statement-per-connection-size: 20
@@ -41,7 +36,7 @@ spring:
 
 
 mybatis:
-  mapper-locations: classpath:mapping/*.xml
+  mapper-locations: classpath:mapper/*.xml
   type-aliases-package: org.zhezii.model
   configuration:
     map-underscore-to-camel-case: true

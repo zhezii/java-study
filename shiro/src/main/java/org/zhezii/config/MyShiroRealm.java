@@ -32,7 +32,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         log.info("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         User user = (User) principalCollection.getPrimaryPrincipal();
-        for (Role role : userService.getRoleList()) {
+        for (Role role : user.getRoleList()) {
             authorizationInfo.addRole(role.getName());
             for (Permission permission : role.getPermissionList()) {
                 authorizationInfo.addStringPermission(permission.getName());
