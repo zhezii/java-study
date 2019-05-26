@@ -3,6 +3,8 @@ package org.zhezii.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.zhezii.model.User;
 
+import java.util.List;
+
 /**
  * @author Zhou Wenzhe
  * @date 2019/5/26
@@ -16,4 +18,10 @@ public interface UserMapper {
      * @return
      */
     User findByUsername(String username);
+
+    /**
+     * 获取用户信息列表
+     * @return
+     */
+    List<User> queryList();
 }

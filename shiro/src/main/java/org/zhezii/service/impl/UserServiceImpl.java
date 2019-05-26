@@ -6,6 +6,7 @@ import org.zhezii.model.User;
 import org.zhezii.service.UserService;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Zhou Wenzhe
@@ -21,4 +22,10 @@ public class UserServiceImpl implements UserService {
     public User findByUsername(String username) {
         return userMapper.findByUsername(username);
     }
+
+    @Override
+    public List<User> getList() {
+        return userMapper.queryList();
+    }
+
 }
