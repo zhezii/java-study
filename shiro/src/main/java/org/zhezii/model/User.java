@@ -22,6 +22,6 @@ public class User implements Serializable {
     private List<Role> roleList;
 
     public String getCredentialsSalt() {
-        return username + "sdfasf12";
+        return username + "8d78869f470951332959580424d4bf4f";
     }
 }
