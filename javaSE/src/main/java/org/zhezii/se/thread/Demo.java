@@ -8,10 +8,10 @@ public class Demo {
 
     public static void main(String[] args) {
 
-        ThreadTest t1 = new ThreadTest(100);
-        ThreadTest t2 = new ThreadTest(100);
-
+        Ticket t1 = new Ticket("A");
+        Ticket t2 = new Ticket("B");
         t1.start();
         t2.start();
+
     }
 }
