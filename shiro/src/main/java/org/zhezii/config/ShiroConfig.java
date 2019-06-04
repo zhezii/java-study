@@ -34,6 +34,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/logout", "logout");
         //过滤定义,从上往下执行，一般将/**放到最下边
         //authc:所有url都必须认证才能通过,anon:所有url都可以匿名访问
+        filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/**", "authc");
         //如果不设置默认会自动寻找web工程根目录下的"/login.jsp"
         shiroFilterFactoryBean.setLoginUrl("/login");
