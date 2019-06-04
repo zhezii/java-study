@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>登录界面</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -36,13 +36,13 @@
     <div class="login-box-body">
         <p class="login-box-msg">欢迎登陆我的后台</p>
 
-        <form action="#" method="post">
+        <form action="/login" method="post">
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="username">
+                <input type="text" class="form-control" placeholder="username" name="username">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
@@ -53,9 +53,10 @@
                         </label>
                     </div>
                 </div>
+                <!--<input type="submit" class="" value="登录"/>-->
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
                 </div>
                 <!-- /.col -->
             </div>
