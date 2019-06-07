@@ -29,15 +29,15 @@ public class LoginController {
         if (exception != null) {
             if (UnknownAccountException.class.getName().equals(exception)) {
                 log.info("UnknownAccountException---->账号不存在：");
-                msg = "UnknownAccountException--->账号不存在";
+                msg = "该账号不存在！";
             } else if (IncorrectCredentialsException.class.getName().equals(exception)) {
                 log.info("IncorectCredentialsException---->密码不正确");
-                msg = "IncorectCredentialsException---->密码不正确";
+                msg = "密码输入错误！请重新输入";
             } else if ("kaptchaValidateFailed".equals(exception)) {
                 log.info("kaptchaValidateFailed---->验证码不正确");
-                msg = "kaptchaValidateFailed---->验证码不正确";
+                msg = "验证码错误！！！";
             } else {
-                msg = "else >>>" + exception;
+                msg = "请输入正确的用户名密码！";
                 log.info("else--->"+exception);
             }
         }
