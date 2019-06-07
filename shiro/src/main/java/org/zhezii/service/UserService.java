@@ -13,4 +13,8 @@ public interface UserService {
     User findByUsername(String username);
 
     List<User> getList();
+
+    Integer addUser(String username, String password, String nickname);
+
+    Integer delUser(int id);
 }

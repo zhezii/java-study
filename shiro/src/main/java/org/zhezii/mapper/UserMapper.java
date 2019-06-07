@@ -24,4 +24,8 @@ public interface UserMapper {
      * @return
      */
     List<User> queryList();
+
+    Integer insertUser(String username, String shiroEncryption, String nickname);
+
+    Integer deleteUser(int id);
 }

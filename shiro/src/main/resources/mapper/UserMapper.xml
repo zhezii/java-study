@@ -12,4 +12,14 @@
       select * from t_user
     </select>
 
+    <insert id="insertUser" parameterType="String">
+        insert into t_user (username,password,nick_name)
+        values
+        (#{username},#{shiroEncryption},#{nickname})
+    </insert>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from t_user where id = #{id}
+    </delete>
+
 </mapper>
