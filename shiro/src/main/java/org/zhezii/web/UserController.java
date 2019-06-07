@@ -2,8 +2,7 @@ package org.zhezii.web;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.zhezii.model.User;
 import org.zhezii.service.UserService;
 
@@ -31,14 +30,14 @@ public class UserController {
     public String userList(Map<String,Object> map) {
         List<User> list = userService.getList();
         map.put("userList", list);
-        return "userList";
+        return "index";
     }
 
     /**
      * 添加用户
      * @return
      */
-    @RequestMapping(value = "/userAdd/username/password/nickname")
+    @PostMapping(value = "/userAdd/username/password/nickname")
     @RequiresPermissions("user:add")//权限管理
     public String userAdd(@PathVariable("username") String username,
                           @PathVariable("password") String password,
@@ -51,7 +50,7 @@ public class UserController {
      * 删除用户
      * @return
      */
-    @RequestMapping(value = "/userDel/userId")
+    @DeleteMapping(value = "/userDel/userId")
     @RequiresPermissions("user:del")//权限管理
     public String userDel(@PathVariable("userId") int id) {
         Integer result = userService.delUser(id);
