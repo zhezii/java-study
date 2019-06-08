@@ -37,13 +37,13 @@ public class UserController {
      * 添加用户
      * @return
      */
-    @PostMapping(value = "/add/{username}/{password}/{nickname}")
+    @RequestMapping(value = "/add/{username}/{password}/{nickname}")
     @RequiresPermissions("user:add")//权限管理
     public String userAdd(@PathVariable("username") String username,
                           @PathVariable("password") String password,
                           @PathVariable("nickname") String nickname) {
-        Integer result = userService.addUser(username, password, nickname);
-        return "userAdd";
+        userService.addUser(username, password, nickname);
+        return "index";
     }
 
     /**
@@ -53,7 +53,7 @@ public class UserController {
     @RequestMapping(value = "/del/{userId}")
     @RequiresPermissions("user:del")//权限管理
     public String userDel(@PathVariable("userId") int id) {
-        Integer result = userService.delUser(id);
-        return "userDel";
+        userService.delUser(id);
+        return "index";
     }
 }
