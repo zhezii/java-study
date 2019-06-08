@@ -25,7 +25,7 @@ public class UserController {
      * 获取用户信息
      * @return
      */
-    @RequestMapping(value = "/userList")
+    @RequestMapping(value = "/query")
     @RequiresPermissions("user:view")//权限管理
     public String userList(Map<String,Object> map) {
         List<User> list = userService.getList();
@@ -37,7 +37,7 @@ public class UserController {
      * 添加用户
      * @return
      */
-    @PostMapping(value = "/userAdd/username/password/nickname")
+    @PostMapping(value = "/add/{username}/{password}/{nickname}")
     @RequiresPermissions("user:add")//权限管理
     public String userAdd(@PathVariable("username") String username,
                           @PathVariable("password") String password,
@@ -50,7 +50,7 @@ public class UserController {
      * 删除用户
      * @return
      */
-    @DeleteMapping(value = "/userDel/userId")
+    @RequestMapping(value = "/del/{userId}")
     @RequiresPermissions("user:del")//权限管理
     public String userDel(@PathVariable("userId") int id) {
         Integer result = userService.delUser(id);
