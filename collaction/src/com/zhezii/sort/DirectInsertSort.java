@@ -14,8 +14,6 @@ public class DirectInsertSort {
         for (int i : a) {
             System.out.print(i + " ");
         }
-        System.out.println();
-        System.out.println("排序之后：");
         for (int i = 0; i < a.length; i++) {
             int temp = a[i];
             int j;
